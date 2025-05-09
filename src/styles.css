@@ -10,7 +10,7 @@ body {
 /* Welcome message styles */
 .welcome-message {
   text-align: center;
-  background: linear-gradient(90deg, #4CAF50, #45a049);
+  background: linear-gradient(90deg, #4CAF50, #1a581d);
   color: white;
   padding: 30px;
   margin-bottom: 20px;
@@ -125,7 +125,7 @@ button:hover {
   width: 150px; /* Set width as needed */
   height: 150px; /* Match your image size */
   margin: 1rem;
- 
+  
 }
 
 .narrator-image {
@@ -134,6 +134,7 @@ button:hover {
   display: block;
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  border: #cce015 solid 1.5px;
 }
 
 .narrator-name {

@@ -1,13 +1,13 @@
 <div class="welcome-message">
-  <h1 class="big-header-text">Want a great story?</h1>
-  <p>Choose your preferences and click <span class="text-warning">Load Story</span>  to explore captivating tales!</p>
+  <h1 class="big-header-text">Want a <span class="text-warning">great</span> story?</h1>
+  <p>Choose your preferences and click <span style="color: #cce015;">Load Story</span>  to explore captivating tales!</p>
 </div>
 
 <router-outlet />
 
 <div class="story-filter">
   <label for="genre">Genre:</label>
-  <select id="genre">
+  <select id="genre" [(ngModel)]="genre">
     <option value="fantasy">Fantasy</option>
     <option value="sci-fi">Sci-Fi</option>
     <option value="mystery">Mystery</option>
@@ -15,24 +15,28 @@
   </select>
 
   <label for="age-group">Age Group:</label>
-  <select id="age-group">
+  <select id="age-group" [(ngModel)]="ageGroup">
     <option value="children">Children</option>
     <option value="teens">Teens</option>
     <option value="adults">Adults</option>
   </select>
 
   <label for="length">Length of Read:</label>
-  <select id="length">
+  <select id="length" [(ngModel)]="length">
     <option value="short">Short</option>
     <option value="medium">Medium</option>
     <option value="long">Long</option>
   </select>
 
-  <button id="load-story">Load Story</button>
+  <button id="load-story" (click)="buildPromptAndFetch()">Load Story</button>
 </div>
 
 <div id="story-display" class="story-display">
-  <p>Once upon a time in a small village nestled between rolling hills, there lived a curious young girl named Lila. She loved exploring the woods, where she discovered hidden streams and ancient trees. One day, she stumbled upon a glowing stone that whispered secrets of the universe. Intrigued, Lila embarked on a journey to uncover its mysteries. Along the way, she met talking animals, solved riddles, and faced her fears. In the end, she realized the stone's magic was within her all along, teaching her courage and kindness. Lila returned home, forever changed by her adventure.</p>
+  <div *ngIf="loading" class="loader-container">
+    <div class="spinner"></div>
+    <span class="visually-hidden">Loading story...</span>
+  </div>
+  <div *ngIf="!loading" [innerHTML]="storyHtml || storyText"></div>
 </div>
 
 <div class="audio-option">
@@ -45,15 +49,15 @@
     </span>
     <span class="narrator-option">
       <span class="narrator-name">Mr. Fox</span>
-      <img src="fox.jpg" alt="Mr. Fox" class="narrator-image">
+      <img src="fox.jpeg" alt="Mr. Fox" class="narrator-image">
     </span>
     <span class="narrator-option">
       <span class="narrator-name">Wise Owl</span>
-      <img src="owl.jpg" alt="Wise Owl" class="narrator-image">
+      <img src="owl.jpeg" alt="Wise Owl" class="narrator-image">
     </span>
     <span class="narrator-option">
       <span class="narrator-name">Queen Aria</span>
-      <img src="queen.jpg" alt="Queen Aria" class="narrator-image">
+      <img src="queen.jpeg" alt="Queen Aria" class="narrator-image">
     </span>
   </span>
   <audio id="audio-player" controls>
