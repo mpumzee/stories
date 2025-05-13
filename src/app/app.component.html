@@ -1,13 +1,13 @@
 <div class="welcome-message">
-  <h1 class="big-header-text">Want a <span class="text-warning">great</span> story?</h1>
-  <p>Choose your preferences and click <span style="color: #cce015;">Load Story</span>  to explore captivating tales!</p>
+  <h1 class="big-header-text">Want a great story?</h1>
+  <p>Choose your preferences and click <span class="text-warning">Load Story</span>  to explore captivating tales!</p>
 </div>
 
 <router-outlet />
 
 <div class="story-filter">
   <label for="genre">Genre:</label>
-  <select id="genre" [(ngModel)]="genre">
+  <select id="genre">
     <option value="fantasy">Fantasy</option>
     <option value="sci-fi">Sci-Fi</option>
     <option value="mystery">Mystery</option>
@@ -15,7 +15,7 @@
   </select>
 
   <label for="age-group">Age Group:</label>
-  <select id="age-group" [(ngModel)]="ageGroup">
+  <select id="age-group">
     <option value="children">Children</option>
     <option value="teens">Teens</option>
     <option value="adults">Adults</option>
